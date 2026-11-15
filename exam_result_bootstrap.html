@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        {% if total_score >= 50 %}
+            <div class="alert alert-success">
+                <h4 class="alert-heading">Congratulations!</h4>
+                <p>You passed the exam for {{ course.name }}.</p>
+            </div>
+        {% else %}
+            <div class="alert alert-danger">
+                <h4 class="alert-heading">Keep trying!</h4>
+                <p>You did not pass the exam.</p>
+            </div>
+        {% endif %}
+        <h3>Your Score: {{ total_score }} / {{ max_score }}</h3>
+        <a href="{% url 'onlinecourse:popular_course_list' %}" class="btn btn-primary mt-3">Back to Courses</a>
+    </div>
+</body>
+</html>
